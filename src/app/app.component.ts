@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, MaxLengthValidator } from '@angular/forms';
 import { NgForOf } from '@angular/common';
 
 @Component({
@@ -16,6 +16,22 @@ export class AppComponent {
 
   suggestUserName() {
     const suggestedName = 'Superuser';
+
+    this.signUpForm.form.patchValue({
+      userData: {
+        username: suggestedName
+      }
+    });
+
+    // this.signUpForm.setValue({
+    //   userData: {
+    //     username: suggestedName,
+    //     email: ''
+    //   },
+    //   secret: 'pet',
+    //   questionAnswered: '',
+    //   gender: 'male'
+    // });
   }
 
   onSubmit(){
