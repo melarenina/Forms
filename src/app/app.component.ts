@@ -9,7 +9,9 @@ import { NgForOf } from '@angular/common';
 })
 export class AppComponent {
 
+  // Gettin the form from the template
   @ViewChild('f') signUpForm: NgForm;
+
   defaultQuestion = 'pet';
   answer = '';
   genders = ['male', 'female', 'others'];
@@ -49,6 +51,8 @@ export class AppComponent {
     this.user.secretQuestion = this.signUpForm.value.secret;
     this.user.answer = this.signUpForm.value.questionAnswered;
     this.user.gender = this.signUpForm.value.gender;
+
+    this.signUpForm.reset();
   }
 
   // onSubmit(form: NgForm){
